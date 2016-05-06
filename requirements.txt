@@ -1,3 +1,6 @@
+Tornado==2.3
+Redis==2.4
+redis-py==2
 websocket-client==0.12 
 dj-database-url==0.4.0
 es6-promise==2.0
