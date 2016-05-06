@@ -1,2 +1,1 @@
 python-2.6
-Tornado-2.3
