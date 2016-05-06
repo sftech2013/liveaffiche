@@ -1,0 +1,10 @@
+Tornado==2.3
+Redis==2.4
+redis-py==2.4
+websocket-client==0.12 
+dj-database-url==0.4.0
+es6-promise==2.0
+Django==1.9.2
+gunicorn==19.4.5
+psycopg2==2.6.1
+whitenoise==2.0.6

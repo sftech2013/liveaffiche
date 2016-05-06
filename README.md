@@ -1,59 +1,44 @@
-Wall
-====
+# python-getting-started
 
-An interactive display built on web technology.
+A barebones Python app, which can easily be deployed to Heroku.
 
-We use it as jukebox device in our kitchen. People can push content
-(youtube-videos, urls, etc) to the display with their mobile devices
-or control the MPD (http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki)
-on the device.
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
-It consist of a python server (built upon tornado) that talks to the display,
-a browser in fullscreen/kiosk mode, and the clients (browser on your mobile),
-via websockets.
+## Running Locally
 
-Setup
------
+Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
-Wall requires:
+```sh
+$ git clone git@github.com:heroku/python-getting-started.git
+$ cd python-getting-started
 
-* Python >= 2.6
-* Tornado >= 2.3
-* Redis >= 2.4
-* redis-py >= 2.4
+$ pip install -r requirements.txt
 
-Run Wall with:
+$ createdb affiche
 
-    python walld.py <config_file>
+$ python walld.py migrate
+$ python walld.py collectstatic
 
- * config_file: path to a config file (optional). Documentation is available in
-   the default config file (`wall/res/default.cfg`).
+$ heroku local
+```
 
-## Platform Support
+Your app should now be running on [localhost:8080](http://localhost:8080/).
 
-The Wall server should work on any [POSIX](https://en.wikipedia.org/wiki/POSIX) system.
+## Deploying to Heroku
 
-## Browser Support
+```sh
+$ heroku create
+$ git push heroku master
 
-The Wall clients support the latest version of popular browsers (i.e. Chrome,
-Firefox, Internet Explorer and Safari; see http://caniuse.com/ ).
+$ heroku run python walld.py migrate
+$ heroku open
+```
+or
 
-Built With
-----------
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
- * Python (2.6) by Python Software Foundation - https://python.org/
- * Tornado (2.3) by Facebook - http://www.tornadoweb.org/en/stable/
- * Redis (2.4) by Salvatore Sanfilippo - http://redis.io/
- * redis-py (2.4) by Andy McCurdy - https://github.com/andymccurdy/redis-py
- * websocket-client (0.12) by Hiroki Ohtani -
-   https://github.com/liris/websocket-client
- * ES6-Promise (2.0) by Yehuda Katz, Tom Dale, Stefan Penner and contributors -
-   https://github.com/jakearchibald/es6-promise
- * HTML Imports (0.5) by The Polymer Project Authors -
-   https://www.polymer-project.org/platform/html-imports.html
- * jQuery (2.1) by jQuery Foundation and other contributors -
-   https://jquery.com/
- * Open Sans (2014-28-01) by Google - http://opensans.com/
- * Font Awesome (4.1) by Dave Gandy - http://fontawesome.io/
- * normalize.css (2.1) by Nicolas Gallagher, Jonathan Neal -
-   https://necolas.github.io/normalize.css/
+## Documentation
+
+For more information about using Python on Heroku, see these Dev Center articles:
+
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)
