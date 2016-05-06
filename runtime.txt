@@ -1,3 +1,2 @@
 python-2.7.11
 Tornado-2.3
-Redis-2.4
